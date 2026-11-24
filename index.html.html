@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Packaging You Need - Manager</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,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"><link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAIAAADdvvtQAAAXzUlEQVR42u2ceZhVxbXo16qqvfeZuk9P0IANimGeBwFxiIIEI6AoUdH70HAd4oVEQ4zG+65GY7xOMUKivhdNvA5Rr0NURCHkEjAogwwKCIhAMzfQ9DyeYQ9V6/6xT7cNxrwkX973db+3fn+d3ntX7Tpdv1O1atgb7akLgWH+XgT/CxgWiGGBGBaIYYEYhgViWCCGBWJYIIZhgRgWiGGBGBaIYVgghgViWCCGBWIYFohhgRgWiGGBGBaIYVgghgViWCCGBWIYFohhgRgWiGGBGIYFYlgghgViWCCGYYEYFohhgRgWiGGBGIYFYlgghgViWCCGYYEYFohhgRgWiGFYIIYFYlgghgViGBaIYYEYFohhgRiGBWJYIIYFYlgghgViGBaIYYEYFohhgRiGBWJYIIYFYlgghmGBGBaIYYEYFohhWCCGBWJYIIYFYlgghmGBGBaIYYEYFohhWCCGBWI6O6qTFkv+GbONIUPU8YgUiIhfXEBkDHU8Ff6BAESkvzglwkRaGwJABCkEABCA1uYfkX8uVZibbPsu7ckRUQqEP5fqiwyBjD7527JAfyXGQLolffIxAgBw7EhEtVchCsykPPA1YNs1trIjFgIAYKbVAx1AWP0EIIUTdwCICDItGTAEACruSCkCbdzm8HZkJaLtwuTyDwLI3YDAtuyIhUBAmGl1QWvAsK4BpHTiNgAQQabVhVCduANAbks2l6NtORFFRJ6vKeMCIChhxxwkQgzvpQEJAIEIhLTijkCgzm1R5xIIEYPAFCXtH918tq1k2OAQkEBoSmXfWl2+fX+DE7PJECC6Ge+is8ouGNkrPx4xBLbCP316dPHqA9JRge9NP7fP10eW9SzOA6ATdakPt1cs23hESRvR/Oj6cb1L8rI6WPjG1uqaTEmxc8fNEy0pCMwj//lJbZOnFAKgm3Enjyu7YMRpyXjUENlSrNp+ZMkHB6WlTODN+PoZFwwvKy1OGGOq6lPrdlYu23AQpU1Gf3/26H69CgzQI69uVlLeOe98Q6Y14y1es++TvfVC4PC+BTdPG44AH++r/u3yzy3bzmazU8adNmn06WXd84Cgtim9ec+JJWsPeL5QlujMDnUygQC0MQUx+46rJ3757IIrx1985xubdlZHE5FUc/quOWMeuWVqxwsijnrrD3vicfXiPTOuOH9Ix1N3Xguvv79j7kN/CAD/5bIxfXsUAsCLf/i88lDDovsuvnbScAB4dvknNTUpO+4gYqYl86/Xj3v45os6ZmI7cvHyvclu1m/vv2zGxEGnFO93f9p53UN/8LSeO234qDN7AsAz722PONats8aHF9w6a9x53/3tzs/qBpYVfW/WeABYtnHfC0t2ggqev2vK3EvGnpLhn7btm3X3kpRvhMBOq1AnDKJRE7Vk3ECb1oy7u+LErsMnmjKu5+v8WOyBG88HIDcbDP5a4QM3TSYCAkq52awXBNpk3ABS2bv+6awrzh/iB8aQ2bb/+CflR/0gcH09e/LwudOHBC1uc8oLtHF9r7o+dfVlQ6+dNNwY2rS7Yt5jf5SOjQBuxh/ar+iBGy8gAgJIuW5b/j6k3XuuHz9j4iA/0L7Rn+4//vHeoxnPA4CrJg2bc/FAanVb016gTaC1Jgo0Bdr4gcl6QX4set8/n0O+62sTaBNok8760Jq95bJhcy8ZG2gyYD47XLlpd0VLJgsAk0b1+8HssX5rNgzRWKC/pViISooj1U1nz3t51A2/nf2TtxCJiEb369GzNC9oydwyY7glFQF99NmR//n0SsdWSgpDAAnr2klDjCFL4Q//94oxN7xw1k0vfefxZY4lAeCGaSNBgRCopMh4wYi++U/cOsUQeUEwb+GKQEulEBFN1r95xgglFACt23Hw3575o2MpJYUmwqRz1YVDjCElxfd/+V+j/vmFcXNfnH3/2xU1jcdqmkb1KwXM5a+kQAAECD87ltSGZp43pN+QHq0ZPzwIAGDjnKlhhvjwS2tGXv/8hBtfmnrHq/uP1x6raRp8egnY0nAX9ndG0wRNrQQBrt52rCmdLclPxBzlWJgojl1z0TACEIj3vbDOkiqMcj1f5xfHe5TkCYHHa5ueXboL7ZgU9Mqq8lH9PuqWF6uoa7WiVjjwQaKnFnyztCAPAO594YMtO6pjRTEdmMCY4tLo7ElDCAAR73txbdR2wsja901RSby0KCEEHqmqf/b3u+J5idKk/fGe2ul3vaYEZHwBcad9YHVKeIdkpJB3XnPWKyt3hwcDbVSB06e0UAhsTmeffGebsCOnl8UOV6Vm3v07SwpfkxN1tCFkgf4OHAtH98/LZvWUcX0LE1FjKO36x6qar5kyuLQwHwAOnKhbue7AtdNGtAsXcyxHSQCoakh7gbGkAAIQcsHC1UAEQlgRFdqQH48nE3Eien9r+WMvb44WxILAKCnc1vSsbw7rUZQPAAcq695fd/h/XDqyfRwej0g7zL8xG7S6M6ae+eJd0wNjiEBKUX6sbvwtL365vUCEQydqChLxZDw6e/KwIydqA22UFMZQ1LIjtgUADS2ZumZvdL9uKx+fTYDagECsb0mdM/+VmmbfUp00DOqkAgmBAPC1niUbn74JACyp/EBbCv/4ySG3KTv/8tHhZe+u210goThfdozBDYEEUAoRARERwRDkFUQtITRByvXabDASBQH0Kk52K4w2po2UGBiQNt44LWfMu2t3Fygozvviv6QNEBEi2pYggERU5cWc9rOF8chXfaNP9lZXVDcuuPLc/Fj01lkTA62VFICgjdbGAIClEAEitsyPRTuMKkzHiSiOgf5mjSypLKkAwFJy2/7jP/zFynHj+owfdJoh0trMmTJy17u3PXjjpCA3ZYfNqWw66wFAn+7Jojwr25LNpH0l9KpF39r66+te/8k0bJuMbGhJvbduh0AcfHrpkwsm++m0VMJLe+eMOG384DJjSGszZ+qoXe/e9tMbLsjlL0Rjq5t2PQDo3S0vv8j5/YbD37r3rTkPvNnUmiGiVNYlbf5sjUecyMI3Psl6HhGVFhcoKcMM05mgOZ0lgJJkom9pYtOuqqvuf+vyu187XFVPRKmM52ndmRXqpAKFMx8V1Y3XP7RkzkPvffvhd6f/6+sXLnj9+PHm+ZeNAhDGkJSiJJnoWZifH4/lhtlKunWZPRV1hiA/Fnl8/oXD+xcM6pP/s++cN25A7z49CwOt/ZQXzgJHI/aPnv5g4+5jADB70ohvXzYs1ZQBMDdMG4YgDIX5x3sW5ifjMcp1qTJVkyo/Xm8MFSZiT37/om4Ja/3OY90KE1HHAsADJ5ogE4T5n0IialXsq3t55Q4h0A90eNCSApqznx2sRgIl5C9unTy4LLlm27F4zCrKjxFBRV1LU1NWSdFpw+hO2oVpTcZQfWv2pWWf5SyXApXq1bfo0nMGhmOWpxZvPHSihbQZM7D7NZNHGEMIBAH+8s3Nr9xTBoDXXjTy6snDjSFL5vq4J978GIQkImPIktjqiZseXfbxr+da0np83pSVm4+kPD3z3Fz+Ty7ecOhEK2hz1uAeV104zBhCBPDME7/7+Lm7LgOA66eOnvONkQAgMPc7fO69T9vzz82eA4RT51objER+/trH100d4SjL9bVAIiIQ6ok3t0yfMFAgXjJh4CUTBmhjpJBtGW7VPjlRDDRxC/TXz0dDPKqEwERUxfOj0WQ0nozm5UfIdW+4ZGhxfkwI3Hus9tZF7z/+8paFv163ZF25lEIIlBIgYb/2/v7v/mLpsdomAJAoQnuO1zbOW7R0xaajdtyyLSEE2koWJeyd26vufe4DIbA4P/7rO7+xYNawwkRMCNx7tOa2RasWvrJl4TPr3llXrsL8BUA88uKKPQueWl5Z1xyqE9pztKbpXxYuXfrRYYjZlhJCoBACEQSiECgE2hZSRO451HT3b973dOBYUghUCiFmrdh8bM6Diw9V1offPrSnpqn17mdXPrvscycRCU5eoetclWVPXdjJhu4Us8X4gcVKitZMsGlvfbtVOqBR/QuKE45AqKjN7KlocRwZ+KZ7kTOkLB+QKqrTe462KEtlW9LFJbGRX+tWWhglgNqmzNby6rq6rBOPGNLjBhTnR1VgaPOe+kzWgDDnD+0uJUoh3EArgRLhSG2qvCJlOyrwdWlRZEhZPiAcrk7vPdpsWTLTki3pFhl1ZrfSgrgBqmxI7dhfV1eXieRFdEBj+icLEw6B3rC7AREnDCgSCLWt3tbyJinRzXpD+xb3KokopMpGd+eBRmXJbKtbkLRG9uvWqzguUNQ0ZnYcqq48kbbj0faWjAX66wMg8LM+EIBAO6I6Nk1e1oewMVfCcRQRAULgk/ECAAAlHUeEI2rXN8YNQGtAAIHSsW0lwvGOlw3AECCpiC0EAKGX8YAAgAAx90Ep25EQ5h8Y4+owZrFtAQRSiqyvyQ3CRVOQQjiWozCcAfLcICykiloAJshoAACJtqPCOdJsmJAAlLAdBURSCD/QgavBaCAAIdBREVvqTtz2dF6BwoAHAKgtgGgfpSspwirWOjeaQgQpUCAS5cbwYceBiGEsawiIyITxhkAEEIhh2rC+pcBw1sAYoi9W3ts+UK79O+UgAYXdEyJQ7haAJ3fEYdrwpkRgiMJvpCSGG0rCslHboEEgtt0pV+DOT2cNor88mYvgB+Rm3NAvx1FhJfkBuX6uuXIilhSY9TV5PoT1qaTtKNFWl9m0D0SAaDmqraYgEx4UuRaiPfINwlYNhe2ocFeFNqTdICyA7UgTptUmt6kjLCURWtK2ZeAb7ekOHVB4DdoRlc4EHVJh2KBGLEkAptM3OV1pJrrjr1kHpmdRtH+vpDamtjm9p6LFtlXgU2mBPaBXiQZMucGOAw1u1u3ZPTGgd7eCvIjv64qall2HGrwAnZgFAOOHdo8o6Wq9/UBDYAgILAvHDii1BWb8YPvBRiJCQG0oLyaHDu6GAOmst+NQQ2CEQCjMU4MHd0PA2pbM3qMthvSIryULYhFN7Q0HKITDNakjlS1FhfbAsmJA0e6OAHC12VZeN+iMgu75jjYACAjg+kF1Y/rwiRYgFYkqY4gF+kcLBGAMxGxY9uismBOtamwedcML9a1G+96zd06fNmEAANz+9IpPtx9bdPtFc6YOL0nGw1+2F/if7D3+w6fe/2hHTXGxs+TBK3oU5je2pgZd/1xtS0BEpXHnjz+/OhGJVNQ0DJ37fMYHS6KbDQYNLFrzxHVh+7Fyy76r7l3a2OifPe609x6cDQDvfbT7svmv3X7LxJ99Z4oUAtq3tJFBFHc8s+rpN7ase/LaAWXdO4Z2AFjbku4586n755579QWD25sfQ7ol5W7ee/zuZ9Zs2l0biVldyKGusSfaEEQiqnxfw8I3NgFAaUH+D68Z61U3XTSh9yUT+htD+47VLnp542O3X7TgqoklyUSoHADYypo45PSlj159Rs94xgsCbYjAC9oXJwmAPJ+IwPOpYwxDhERkDAaapozpv+Cq0dCSESiIgAh8DYA04+z+Ukgv6BCloQAA1zd9+xYOKOvecTYodMVSSIKCAIjAD3K9lUCZTMSmjOm37LGrTu8R9T3dyZcvul4LBADaGJWIPfn2pzfNGN29IO+WS8f+4rUN3581FgFRwI9fWFtYkLh11lnaEAI99Oqadz/cX1oY/dn8yf17lRTlxW+6dMQ9/7FWyi/i1I7945cPtgXOhADa0PeuOOvn/7k563VYphDoB5oALCnuePq/Nu6sikRtrY1tiZ37a0/vmWeIBOKWvcd+8NQqy7aJTLjl2XhaCkIEKcWP/+P9tdsqTj+t4MEbL+xemCjJT1z3zSH//psNthPXmligf/DY3rZFdVXrL9/a+PBN38iLRhY//K3BfXoQwc7Dla8v2znjooGWtABg/WcVP37qQ4jGoPGY41hv3n8lEY0b1Mu2xd/RNUghtDbF+YkbZw7fuKuqY4+Usw5hx/6aTbsqo3EbDHmaMk1+/94F4Tirvim9YeexaDxqjEGAZpdAY9jSCcQNn1et3lABweGoo371g+lENLp/DxCdfOqnawoUNkJWPPrMOzvnzRxbVlI4buAZRIAID730EaV0r6JYGFNs2XtCCCsvbrcifF7R4OvAkqqoIOpY4m/2ByGVydqWFITfu3xcdd2qcCn+lFK99dMrvcCEyyPLN+3/p7uWiNxDF3DhmDMrl9yGiEQgEab929vrPzog2hbL4lFbJhwQ8tP9tQQGURTnxUCprjGC70IxUHsjpCzRUJ997NUNAtH1AkRY/9nht1fvg7xouFQFAL4OACgwZIiCgMJVJCWg/UmhtmAnF8O21dapm7YICAHX7Tyyast+ROzXq+i7M0dnw7H9yaVKRCNFebGSZDyZiJUWJ+iL3oeUlEV58cJErCgvlkzEHCmgg8XGkNZkgPzAEBkIn2fCLtQAdakWCACMNlYi8vzyz2+bNb7faSUA8NhrmzwfQEBzKvf0zGklSaNJSkkBFcRVxFYAkMnqjJ+blrSVJAMASGHPaEkA0AY0/ZmNf9kAFr628ZvjBxkD547oH2gNcNKEoRDwq3c37j/aKi0pEcuP14FjkcnNP+45Uv2bpdstxzbGCICDVS1gKeo4OSqQXL8kGREoASDlemA0InaVRqiLCUQASopUq7v3aEP/shIAqqrPhG1L+bFGAiKCKWP7Dh/abceeOiHMd2aMAEIDtL+y3q1P1zW19i5JJuPRGRN7P/fOTgCYOb1/IuIYQ1UNrZm070ScU+5YkIh+sOHwh9sPnj+8b6ANdhyp5YJp8fzvd2xefwQSDhgCR4KV28WMAAeO1z/+zAcQj+SeRMuPgvriMR0yPvheQdKZf/nocHb7UGUj+CQQDLdA//ccQgFCYKANAEmJYEw07uwor9205+iEgb2Tsciqhdds2VPVvSg2ul8PY4wQ4o3Ve8DDd9buHdO/zA/0/1ow7dsXjwQBEwaV+YGxlHhnzR7yjYjlfvpEEGiDAMYYMOLhVzZ+/dG+JlwTaV8DQQy00ca88ZNZjSlXChFoY0vxkxfXH6hsMERa03kjzti2eD6iICKJWN2U/sbtb/gawoSLvjfl3m+fW1qU6NO90BAIhLc/LO9aMVDXEwgAyFB+zAmfalBSAIFA0Abn/Xz52w9ceUaPom7JvIvH57V3MY+++uGyNQedHslFr2+dMLjX9LMHWSC/PrJve4bvrN31q8Xb7XhEayMEAoGSItwJmRezIGGv2HRkyfpdM8/JPWuWjDsQmBONreHDFWf0KOpYvH69i9ZvPyIQhUJLRUae2fPk2QHMi1phwrAXbpsWMI+8snbFxiPOV2zLZ4H+UaE0Cct6e83n+yqqDOHxurRQItDGilhby5smzH959qSBZ/UvTSacIDAHqxqXrt//wdbjdtQBoGyAl9/z7hXn77xgZJ9eRQkCOF7Xsnrr0cXrDgihpMRwTVQocaIx/ezyzQrErqP1UiKinPvIinmXVp7ZM2lJ/Li8SuTF7nv+o+r6dDKudFvsZIxxBH66r/J4VeqGny09b1gPQ7mejogEYnPGQ4HLN+5tbGr2DIUP1XuBOXKiZfW2w5t21djRCHWppYxOuhr/fyq18NJZCDQAiFhEqdy4RQj0fGMyHgCBACAEY8BSkZhjjIHcCjl6KReMBiEACQyAEE7MgY5hK4LWRqdcAAKp7JiNCIEmnXIBKQzE7LjjeRoyXu5Ixz7WsRzHcltdMF+KZATa8aiXdcHXJ80WAIClIjHbmC62mNo1Ber4hg1z0mN34as2qG2sjnjSGzDCugr3Crbv0zjlgo75hMGQbpOv/QnRMIlAEOIr3yLSXsJTAriwl/zyuY6v/uhCdMkYKPTmq+aK/vIGUPrqtH85ny8fMfSXdl/8hbsYQwYI/p+AXzDFsEAMC8SwQAwLxDAsEMMCMSwQwwIxDAvEsEAMC8SwQAzDAjEsEMMCMSwQw7BADAvEsEAMC8SwQAzDAjEsEMMCMSwQw7BADAvEsEAMC8QwLBDDAjEsEMMCMQwLxLBADAvEsEAMC8QwLBDDAjEsEMMCMQwLxLBADAvEsEAMwwIxLBDDAjEsEMOwQAwLxLBADAvEMCwQwwIxLBDDAjEsEMOwQAwLxLBADAvEMCwQwwIxLBDDAjEMC8SwQAwLxLBADMMCMSwQwwIxLBDz/y//Dbjkg2VAYn/bAAAAAElFTkSuQmCC">
+<style>
+:root{--bg:#f4f6f9;--c:#fff;--t:#1b1f24;--m:#667085;--b:#e1e4ea;--p:#1f6feb;--g:#1a7f37;--r:#cf222e;--y:#9a6700}
+@media(prefers-color-scheme:dark){:root{--bg:#111418;--c:#1a1f26;--t:#e8ebef;--m:#98a2b3;--b:#2c333d;--p:#4c8dff;--g:#3fb950;--r:#f85149;--y:#d29922}}
+*{box-sizing:border-box}body{margin:0;font:15px system-ui,"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--t)}
+nav{display:flex;gap:6px;flex-wrap:wrap;padding:10px 16px;background:var(--c);border-bottom:1px solid var(--b);position:sticky;top:0;z-index:5}
+nav b{margin-right:12px;align-self:center}
+nav button{border:0;background:none;color:var(--m);padding:8px 12px;border-radius:6px;cursor:pointer;font:inherit}
+nav button.on{background:var(--p);color:#fff}
+main{max-width:1100px;margin:0 auto;padding:16px}
+h2{margin:0 0 12px;font-size:18px}h3{margin:18px 0 8px;font-size:15px;color:var(--m)}
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.k,.box{background:var(--c);border:1px solid var(--b);border-radius:10px;padding:14px}
+.k span{display:block;color:var(--m);font-size:13px}.k b{font-size:22px}
+.G{color:var(--g)}.R{color:var(--r)}.Y{color:var(--y)}.m{color:var(--m)}
+input,select{padding:8px;border:1px solid var(--b);border-radius:6px;background:var(--c);color:var(--t);font:inherit;max-width:100%}
+label{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--m)}
+.f{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;margin-bottom:14px}
+button.a{background:var(--p);color:#fff;border:0;padding:9px 14px;border-radius:6px;cursor:pointer;font:inherit}
+button.s{background:none;border:1px solid var(--b);color:var(--t);padding:4px 9px;border-radius:5px;cursor:pointer;font:inherit}
+.w{overflow-x:auto;background:var(--c);border:1px solid var(--b);border-radius:10px}
+table{width:100%;border-collapse:collapse}th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--b);white-space:nowrap}
+th{font-size:12px;color:var(--m);text-transform:uppercase}
+.al{background:var(--c);border-left:4px solid var(--y);padding:10px 12px;margin-bottom:8px;border-radius:6px}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.bar{display:flex;gap:8px;justify-content:flex-end;margin-bottom:10px}#ph{display:none;font-weight:700;margin-bottom:10px}
+@media print{:root{--bg:#fff;--c:#fff;--t:#000;--m:#444;--b:#bbb}nav,.bar,.fb,button,input[type=file]{display:none!important}main[data-t]:not([data-t=Calculator]) .f{display:none}#ph{display:block}.w{overflow:visible}td,th{white-space:normal}body{font-size:12px}.two{display:block}}
+ul{margin:6px 0 0 18px;padding:0}li{margin:5px 0}
+.fb{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;margin:0 0 12px;background:var(--c);border:1px solid var(--b);border-radius:10px;padding:10px}
+</style></head><body>
+<nav id="nav"></nav><main id="v"></main>
+<script>
+const LOGO=document.querySelector('link[rel=icon]').href;const K='boxmgr1';let D;
+try{D=JSON.parse(localStorage.getItem(K)||'null')}catch(e){}
+D={cash0:0,fixed:0,items:[],bills:[],exp:[],prods:[],cv:null,chk:{},parties:[],cap:[],myState:'Delhi',...(D||{})};
+function mig(){if(D.cv&&D.cv.sm==null)D.cv.sm=0;(D.prods||[]).forEach(p=>{if(p.v&&p.v.sm==null)p.v.sm=0})}mig();
+const save=()=>{let ch=false;try{ch=stamp();localStorage.setItem(K,JSON.stringify(D))}catch(e){alert('Could not save. Browser storage is blocked.')}if(ch)schedSync()};
+const $=i=>document.getElementById(i),n=x=>parseFloat(x)||0,uid=()=>Date.now()+Math.random();
+const sum=a=>a.reduce((x,y)=>x+y,0);const bs=b=>b.base!=null?b.base:b.amt;
+const F={Bills:{},Stock:{},Expenses:{},Calculator:{},Accounts:{}},BODY={},CATS=['Rent','Salary','Electricity','Phone/Internet','Transport','Interest/EMI','Tax/GST','Personal draw','Other'];
+let LAST={c:0,sp:0};
+
+const f=x=>'₹'+n(x).toLocaleString('en-IN',{maximumFractionDigits:2});
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const td=()=>new Date().toISOString().slice(0,10);
+const addDays=(d,k)=>{const x=new Date(d);x.setDate(x.getDate()+k);return x.toISOString().slice(0,10)};
+const dd=(a,b)=>Math.round((new Date(b)-new Date(a))/864e5);
+const val=i=>$(i).value;
+const tbl=(h,r)=>`<div class=w><table><tr>${h.map(x=>`<th>${x}</th>`).join('')}</tr>${r.join('')||`<tr><td colspan=${h.length} class=m>Nothing yet</td></tr>`}</table></div>`;
+const card=(t,v,c='')=>`<div class=k><span>${t}</span><b class="${c}">${v}</b></div>`;
+const inp=(id,l,v,t='number',x='')=>`<label>${l}<input id=${id} type=${t} value="${esc(v)}" ${x}></label>`;
+
+/* DASHBOARD */
+function dash(){
+const S=D.bills.filter(b=>b.t=='S'),P=D.bills.filter(b=>b.t=='P'),rem=b=>b.amt-b.paid;
+const rec=sum(S.map(rem)),pay=sum(P.map(rem));
+const cash=D.cash0+sum(S.map(b=>b.paid))-sum(P.map(b=>b.paid))-sum(D.exp.map(e=>e.amt));
+const sv=sum(D.items.map(i=>i.qty*i.rate));
+const m=td().slice(0,7),ms=sum(S.filter(b=>b.date.startsWith(m)).map(bs)),
+mp=sum(P.filter(b=>b.date.startsWith(m)).map(bs)),me=sum(D.exp.filter(e=>e.date.startsWith(m)).map(e=>e.amt)),gO=sum(S.filter(b=>b.date.startsWith(m)).map(b=>b.gst||0)),gI=sum(P.filter(b=>b.date.startsWith(m)).map(b=>b.gst||0));
+const ag=[0,0,0,0];
+S.filter(b=>rem(b)>0).forEach(b=>{const l=dd(addDays(b.date,b.days),td());ag[l<=0?0:l<=30?1:l<=60?2:3]+=rem(b)});
+const by={};S.forEach(b=>by[b.party]=(by[b.party]||0)+bs(b));
+const tot=sum(Object.values(by)),top=Object.entries(by).sort((a,b)=>b[1]-a[1])[0];
+const al=[];
+D.items.filter(i=>i.min>0&&i.qty<=i.min).forEach(i=>al.push(`Low stock: ${esc(i.name)} (${i.qty} ${esc(i.unit)} left)`));
+const od=ag[1]+ag[2]+ag[3];if(od>0)al.push(`Overdue from clients: ${f(od)}. Follow up today.`);
+if(top&&tot>0&&top[1]/tot>.25)al.push(`${esc(top[0])} is ${Math.round(top[1]/tot*100)}% of your sales. Keep any one client under 25%.`);
+if(D.fixed>0&&cash<D.fixed)al.push('Cash is below one month of your fixed costs.');
+if(pay>cash+rec*0.5&&pay>0)al.push(`You owe suppliers ${f(pay)}. Check you can pay on time.`);
+const s90=sum(S.filter(b=>dd(b.date,td())<=90).map(b=>b.amt)),p90=sum(P.filter(b=>dd(b.date,td())<=90).map(b=>b.amt));
+const rd=s90>0?Math.round(rec/s90*90):0,pd=p90>0?Math.round(pay/p90*90):0,mo=D.fixed>0?cash/D.fixed:null,np=ms>0?(ms-mp-me)/ms*100:null;
+if(rd>45)al.push(`Clients take about ${rd} days to pay. Aim for 30-45. Ask for advance and stop supply to slow payers.`);
+if(!D.bills.length&&!D.items.length)al.push('Start here: enter opening cash in Settings, add your stock, then record every sale and purchase bill. Read the Guide tab for what to do and what not to do.');
+return `<h2>Dashboard</h2>
+${al.map(a=>`<div class=al>${a}</div>`).join('')}
+<div class=g>${card('Cash in hand / bank',f(cash),cash<0?'R':'G')}${card('Clients owe you',f(rec))}${card('You owe suppliers',f(pay))}${card('Stock value',f(sv))}
+${card('Net position (cash + receivables + stock - payables)',f(cash+rec+sv-pay),cash+rec+sv-pay<0?'R':'G')}</div>
+<h3>This month</h3><div class=g>${card('Sales (before GST)',f(ms))}${card('Pieces sold',sum(S.filter(b=>b.date.startsWith(m)).map(b=>b.qty||0)).toLocaleString('en-IN'))}${card('Purchases (before GST)',f(mp))}${card('Expenses',f(me))}${card('Rough result (sales - purchases - expenses)',f(ms-mp-me),ms-mp-me<0?'R':'G')}${card('GST charged on sales',f(gO))}${card('GST paid on purchases',f(gI))}${card('Net GST (negative = credit with govt)',f(gO-gI),gO-gI<0?'Y':'R')}</div>
+<h3>Health check</h3><div class=g>${card('Days clients take to pay',rd+' days',rd>45?'R':'G')}${card('Days you take to pay suppliers',pd+' days')}${card('Cash covers fixed costs for',mo==null?'Set fixed costs in Calculator':mo.toFixed(1)+' months',mo!=null&&mo<1?'R':'G')}${card('Rough profit % this month',np==null?'-':np.toFixed(1)+'%',np!=null&&np<0?'R':'G')}</div><p class=m>Targets: clients pay within 30-45 days. Cash covers at least 1-2 months of fixed costs.</p>
+<h3>Money clients owe you, by age</h3><div class=g>${card('Not due yet',f(ag[0]))}${card('1-30 days late',f(ag[1]),'Y')}${card('31-60 days late',f(ag[2]),'R')}${card('Above 60 days late',f(ag[3]),'R')}</div>
+<h3>Sales by client</h3>${tbl(['Client','Sales','Share'],Object.entries(by).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<tr><td>${esc(k)}</td><td>${f(v)}</td><td>${Math.round(v/tot*100)}%</td></tr>`))}
+<p class=m>Rough result is not exact profit, because stock bought is not always stock used. Ask your CA for true profit.</p>`}
+
+/* CALCULATOR */
+const DEF={nm:'',sm:1,sl:40,sw:28,up:1,bl:14.2,bw:12.6,bh:6.4,fl:1.4,ol:'',ow:'',dx:1,dg:285,dr:52,lx:1,ld:350,ply:2.5,lg:150,fg:125,pr:43,jw:2.48,pt:1.73,tr:1,di:.5,dsg:.5,sh:1,ms:0,qty:1000,mg:10,sp:35,fx:0};
+const NUM=['sl','sw','up','bl','bw','bh','fl','dg','dr','ld','ply','lg','fg','pr','jw','pt','tr','di','dsg','sh','ms','qty','mg','sp','fx'];
+const inc=(x,m)=>{x=n(x);if(!m)return x;const w=Math.trunc(x);return w+Math.round((x-w)*10)/8};
+const badS=x=>{x=n(x);return x>0&&(Math.abs(x*10-Math.round(x*10))>1e-6||Math.round((x-Math.trunc(x))*10)>7)};
+const sec=(t,h)=>`<div class=box style="margin-bottom:14px"><h3 style="margin-top:0">${t}</h3><div class=f style="margin:0">${h}</div></div>`;
+function calc(){const v={...DEF,fx:D.fixed,...(D.cv||{})};
+const I=(i,l)=>inp(i,l,v[i],'number','step=any oninput=stale()');
+const CB=(i,l)=>`<label style="flex-direction:row;align-items:center;gap:8px;color:var(--t)"><input type=checkbox id=${i} ${v[i]?'checked':''} onchange=stale()> ${l}</label>`;
+return `<h2>Cost Calculator</h2><div class=box style="margin-bottom:14px"><div class=f style="margin:0">${inp('nm','Box name (e.g. 3-ply 14.2x12.6x6.4 carton)',v.nm,'text','oninput=stale() style="width:320px"')}<label>Register this box under a party?<select id=cp onchange=cpChg()><option value="">No party</option>${D.parties.map(p=>`<option value="${p.id}" ${v.cp==p.id?'selected':''}>${esc(p.name)}</option>`).join('')}<option value="__new">+ Create new party...</option></select></label></div></div><div class=two><div>
+${sec('1. Sheet and box size (inches)',CB('sm','Sizes are in inch.suta (1 inch = 8 suta, so 14.4 = 14 and a half inch)')+I('sl','Sheet length')+I('sw','Sheet width')+I('up','Boxes made from one sheet')+I('bl','Box length')+I('bw','Box width')+I('bh','Box height')+I('fl','Pasting flap')+inp('ol','Blank length (optional)',v.ol,'number','step=any oninput=stale()')+inp('ow','Blank width (optional)',v.ow,'number','step=any oninput=stale()'))}
+${sec('2. Duplex',CB('dx','Duplex used in this box')+I('dg','Duplex GSM (250, 285, 300...)')+I('dr','Duplex rate (₹/kg)'))}
+${sec('3. Lamination',CB('lx','Lamination used in this box')+I('ld','Divide sheet size by (default 350)'))}
+${sec('4. Kraft paper',`<label>Plies<select id=ply onchange=stale()>${[[2.5,'3 ply (x2.5)'],[5,'5 ply (x5)'],[7.5,'7 ply (x7.5)']].map(([a,b])=>`<option value=${a} ${v.ply==a?'selected':''}>${b}</option>`).join('')}</select></label>`+I('lg','Top / liner paper GSM')+I('fg','Flute paper GSM')+I('pr','Paper rate (₹/kg)'))}
+${sec('5. Other costs per box (₹)',I('jw','Making (job work)')+I('pt','Printing')+I('tr','Cartage')+I('di','Die')+I('dsg','Design')+I('sh','Shortage')+I('ms','Misc'))}
+${sec('6. Selling',I('qty','Order quantity')+I('mg','Target margin %')+I('sp','Your selling price per box (₹)')+I('fx','Fixed monthly costs (₹)'))}
+<button class=a onclick=run(1)>Calculate</button> <button class=s onclick=saveP()>Save this product</button> <span id=st class=m style="margin-left:8px"></span></div><div class=box id=out style="align-self:start"></div></div>
+<h3>Saved box prices</h3>${fbar('Calculator','')}<div id=res>${BODY.Calculator()}</div>`}
+const g=i=>n(val(i));
+function grab(){D.cv={};NUM.forEach(i=>D.cv[i]=g(i));D.cv.ol=val('ol');D.cv.ow=val('ow');D.cv.nm=val('nm').trim();D.cv.cp=val('cp');['dx','lx','sm'].forEach(i=>D.cv[i]=$(i).checked?1:0);D.fixed=g('fx');save()}
+function stale(){grab();$('out').style.opacity=.4;$('st').textContent='Inputs changed. Press Calculate.'}
+function run(sc){
+grab();$('out').style.opacity=1;$('st').textContent='✓ Calculated at '+new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
+const m=D.cv.sm,I=k=>inc(g(k),m),up=g('up')||1,ply=g('ply');
+const SL=I('sl'),SW=I('sw'),A=SL*SW;
+/* grams = sheet length x sheet width x GSM / 1550 ; cost = grams / 1000 x rate per kg */
+const dG=D.cv.dx?A*g('dg')/1550:0,dC=dG/1000*g('dr');
+const avg=(g('lg')+g('fg'))/2,pG=A*avg*ply/1550,pC=pG/1000*g('pr');
+const lC=D.cv.lx&&g('ld')>0?A/g('ld'):0;
+const sc3=dC+pC+lC,oth=g('jw')+g('pt')+g('tr')+g('di')+g('dsg')+g('sh')+g('ms');
+const c=sc3/up+oth;
+const bL=n($('ol').value)>0?inc($('ol').value,m):2*(I('bl')+I('bw'))+I('fl'),bW=n($('ow').value)>0?inc($('ow').value,m):I('bw')+I('bh'),ba=bL*bW;
+const fits=(bL<=SL&&bW<=SW)||(bL<=SW&&bW<=SL),wp=A>0?(A-up*ba)/A:0,wc=sc3*Math.max(wp,0)/up;
+const bad=m?['sl','sw','bl','bw','bh','fl','ol','ow'].filter(k=>badS($(k).value)):[];
+const tp=g('mg')<100?c/(1-g('mg')/100):0,sp=g('sp'),mg=sp-c,c5=c+(dC+pC)/up*.05,be=mg>0?Math.ceil(g('fx')/mg):0;
+const R=(a,b,d)=>`<tr><td>${a}</td><td>${b}</td><td>${f(d)}</td></tr>`;
+LAST={c,sp};$('out').innerHTML=(bad.length?`<p class=R><b>Check sizes:</b> in inch.suta mode use one digit after the point, from 0 to 7 (14.4 = 14 and a half). Wrong fields: ${bad.join(', ')}.</p>`:'')+
+`<h3 style="margin-top:0">${D.cv.nm?esc(D.cv.nm)+' - ':''}1. Actual cost per box</h3><div class=g>${card('Total cost per box',f(c),'G')}${card('Paper used per box (duplex + kraft)',((dG+pG)/up).toFixed(1)+' g')}</div>
+<p class=m>Sizes used: sheet ${SL} x ${SW} in, blank ${bL.toFixed(2)} x ${bW.toFixed(2)} in. Nothing is deducted from this cost.</p>`+
+tbl(['Item','Grams','Cost'],[
+`<tr><td>Duplex${D.cv.dx?' ('+g('dg')+' GSM)':' (off)'}</td><td>${(dG/up).toFixed(1)} g</td><td>${f(dC/up)}</td></tr>`,
+`<tr><td>Kraft paper (avg ${avg} GSM x ${ply})</td><td>${(pG/up).toFixed(1)} g</td><td>${f(pC/up)}</td></tr>`,
+R('Lamination'+(D.cv.lx?' (sheet / '+g('ld')+')':' (off)'),'',lC/up),R('Making (job work)','',g('jw')),R('Printing','',g('pt')),R('Cartage','',g('tr')),R('Die','',g('di')),R('Design','',g('dsg')),R('Shortage','',g('sh')),R('Misc','',g('ms')),
+`<tr><td><b>Total cost per box</b></td><td></td><td><b>${f(c)}</b></td></tr>`])+
+`<h3>2. Pricing and profit</h3><div class=g>${card('Price for your target margin',f(tp),'G')}${card('Margin at your price',f(mg)+' ('+(sp?(mg/sp*100).toFixed(1):0)+'%)',mg<=0?'R':'G')}
+${card('Order revenue',f(sp*g('qty')))}${card('Order profit',f(mg*g('qty')),mg<=0?'R':'G')}
+${card('Margin if paper and duplex rise 5%',f(sp-c5),sp-c5<=0?'R':'Y')}${card('Boxes per month to cover fixed costs',mg>0&&g('fx')>0?be.toLocaleString('en-IN'):'-')}</div>
+<h3>3. Wastage (sheet to box)</h3>`+(wp<0?`<p class=Y>The box blank is bigger than the sheet. Check the sheet size.</p>`:`<div class=g>${card('Wastage on this box',(wp*100).toFixed(1)+'%',wp>.25?'R':'Y')}${card('Wastage cost per box',f(wc),'R')}${card('Wastage cost on this order',f(wc*g('qty')),'R')}</div>
+<p class=m>Wastage is only shown for your information. It is already inside the paper, duplex and lamination cost above, so it is not deducted or added again. It is the part of the sheet's cost that is cut away.</p>`+(fits?'':`<p class=Y>This blank does not fit the sheet as one piece. The waste figure is an area estimate, so type the real blank size in section 1 if your box is made another way.</p>`));
+if(sc)$('out').scrollIntoView({behavior:'smooth',block:'nearest'})}
+function loadP(i){D.cv={...D.prods[i].v};go('Calculator')}
+function delP(i){if(confirm('Delete this product?')){D.prods.splice(i,1);save();go('Calculator')}}
+
+/* STOCK */
+function adj(id,s){const i=D.items.find(x=>x.id==id),q=n(prompt((s>0?'Quantity received':'Quantity used or sold')+' ('+i.unit+')'));if(!q)return;if(s<0&&q>i.qty&&!confirm('More than stock in hand. Continue?'))return;i.qty+=s*q;save();go('Stock')}
+function rate(id){const i=D.items.find(x=>x.id==id),r=prompt('New cost per unit (₹)',i.rate);if(r===null)return;i.rate=n(r);save();go('Stock')}
+function delI(id){if(confirm('Delete item?')){D.items=D.items.filter(x=>x.id!=id);save();go('Stock')}}
+
+/* BILLS */
+function bills(){const ps=plist();return `<h2>Sales and purchase bills</h2><div class=f><label>Type<select id=bt onchange=bchg()><option value=S>Sale (client owes me)</option><option value=P>Purchase (I owe supplier)</option></select></label>
+${inp('bp','Party name (pick from Accounts)','','text','list=pl onchange=pickP()')}<datalist id=pl>${ps.map(p=>`<option value="${esc(p)}">`).join('')}</datalist>${inp('bd','Bill date',td(),'date')}${inp('bq','Quantity','','number','step=any oninput=bprev()')}${inp('br','Rate per piece (₹, before GST)','','number','step=any oninput=bprev()')}${inp('bg','GST %',5,'number','step=any oninput=bprev()')}<label>Party location<select id=bi onchange=bprev()><option value=0>Same state (CGST + SGST)</option><option value=1>Other state (IGST)</option></select></label>${inp('bc','Credit days','30')}<button class=a onclick=addB()>Add bill</button></div>
+<div id=pinfo style="margin:-6px 0 6px"></div><div id=bpv style="margin:-4px 0 14px"></div>
+${fbar('Bills',fin('Bills','from','From','date')+fin('Bills','to','To','date')+fsel('Bills','t','Type',[['','Sale + Purchase'],['S','Sales'],['P','Purchases']])+fsel('Bills','s','Status',[['','All'],['open','Unpaid'],['late','Overdue'],['paid','Paid']])+fsel('Bills','o','Sort by',[['new','Newest first'],['old','Oldest first'],['amt','Amount (high to low)'],['party','Party A-Z']]))}<div id=res>${BODY.Bills()}</div>`}
+BODY.Bills=()=>{const rem=b=>b.amt-b.paid,x=F.Bills;
+const a=D.bills.filter(b=>fmatch(b,'Bills',b.party+' '+(b.t=='S'?'sale':'purchase'))&&(!x.t||b.t==x.t)&&(!x.from||b.date>=x.from)&&(!x.to||b.date<=x.to)&&(!x.s||(x.s=='paid'?rem(b)<=0:x.s=='open'?rem(b)>0:rem(b)>0&&dd(addDays(b.date,b.days),td())>0)));
+const o=x.o||'new';a.sort(o=='old'?(p,q)=>p.date.localeCompare(q.date):o=='amt'?(p,q)=>q.amt-p.amt:o=='party'?(p,q)=>p.party.localeCompare(q.party):(p,q)=>q.date.localeCompare(p.date));
+const rows=a.map(b=>{const due=addDays(b.date,b.days),l=dd(due,td()),r=rem(b);
+const st=r<=0?'<span class=G>Paid</span>':l>0?`<b class=R>Overdue ${l}d</b>`:`<span class=m>Due in ${-l}d</span>`;
+const gt=b.gst!=null?`${f(b.gst)}<br><span class=m style="font-size:12px">${b.ig?'IGST '+b.gr+'%':'CGST '+f(b.gst/2)+' + SGST '+f(b.gst/2)}</span>`:'-';
+return `<tr><td>${b.t=='S'?'Sale':'Purchase'}</td><td>${esc(b.party)}</td><td>${b.date}</td><td>${due}</td><td>${b.qty||'-'}</td><td>${b.rate!=null?f(b.rate):(b.qty?f(b.amt/b.qty):'-')}</td><td>${f(bs(b))}</td><td>${gt}</td><td>${f(b.amt)}</td><td>${f(b.paid)}</td><td>${f(r)}</td><td>${st}</td><td>${r>0?`<button class=s onclick="pay(${b.id})">Record payment</button>`:''}</td><td><button class=s onclick="delB(${b.id})">Delete</button></td></tr>`});
+
+const tot=`<tr><td colspan=6><b>Total (${a.length} bills)</b></td><td><b>${f(sum(a.map(bs)))}</b></td><td><b>${f(sum(a.map(b=>b.gst||0)))}</b></td><td><b>${f(sum(a.map(b=>b.amt)))}</b></td><td><b>${f(sum(a.map(b=>b.paid)))}</b></td><td><b>${f(sum(a.map(rem)))}</b></td><td></td><td></td><td></td></tr>`;
+return fsum('Bills')+tbl(['Type','Party','Date','Due','Qty','Rate/pc','Before GST','GST','Total','Paid','Balance','Status','',''],[...rows,a.length?tot:''])};
+const r2=x=>Math.round(x*100)/100;
+function bcalc(){const q=n(val('bq')),r=n(val('br')),gr=n(val('bg')),ig=val('bi')=='1',base=r2(q*r),gst=r2(base*gr/100);return{q,r,gr,ig,base,gst,tot:r2(base+gst)}}
+function bprev(){const c=bcalc(),h=c.ig?`IGST ${c.gr}% = ${f(c.gst)}`:`CGST ${c.gr/2}% = ${f(c.gst/2)} + SGST ${c.gr/2}% = ${f(c.gst/2)}`;
+const p=pby(val('bp')),out=p&&val('bt')=='S'?sum(pbills(p).filter(b=>b.t=='S').map(b=>b.amt-b.paid)):0;
+const w=p&&p.limit>0&&val('bt')=='S'&&out+c.tot>p.limit?`<br><b class=R>Credit limit warning: ${esc(p.name)} already owes ${f(out)}. With this bill it goes above the limit of ${f(p.limit)}.</b>`:'';
+$('bpv').innerHTML=`<b>${f(c.base)}</b> before GST + ${h} = <b>Total ${f(c.tot)}</b>${w}`}
+function bchg(){$('bg').value=val('bt')=='P'?18:5;bprev()}
+function addB(){const c=bcalc();if(!val('bp').trim()||!(c.base>0))return alert('Enter party name, quantity and rate per piece');const pp=ensureParty(val('bp'));D.bills.push({id:uid(),t:val('bt'),party:pp.name,pid:pp.id,date:val('bd'),qty:c.q,rate:c.r,base:c.base,gr:c.gr,ig:c.ig?1:0,gst:c.gst,amt:c.tot,days:n(val('bc')),paid:0});save();go('Bills')}
+function pay(id){const b=D.bills.find(x=>x.id==id),a=n(prompt('Amount received/paid (₹)',b.amt-b.paid));if(!a)return;b.paid=Math.min(b.amt,b.paid+a);save();go('Bills')}
+function delB(id){if(confirm('Delete bill?')){D.bills=D.bills.filter(x=>x.id!=id);save();go('Bills')}}
+
+/* EXPENSES */
+function delE(id){D.exp=D.exp.filter(x=>x.id!=id);save();go('Expenses')}
+
+/* SETTINGS / BACKUP */
+function back(){return `<h2>Settings and backup</h2><p class=m>Software version 6. To upgrade: download a backup from the old file, open the new file, then restore the backup here.</p><div class=box><div class=f>${inp('oc','Opening cash and bank balance (₹)',D.cash0)}${inp('ca','Add cash to capital (₹)','')}${inp('cn','Note (optional)','','text')}<button class=s onclick=addCash()>Add cash</button><button class=a onclick="D.cash0=n(val('oc'));save();alert('Saved')">Save</button></div>
+<p>Total opening balance now: <b>${f(D.cash0)}</b>. Add cash puts your amount on top of it, so you do not retype the old balance.</p>
+${tbl(['Date','Cash added','Note',''],(D.cap||[]).map(c=>`<tr><td>${c.date}</td><td>${f(c.amt)}</td><td>${esc(c.note||'')}</td><td><button class=s onclick="delCap(${c.id})">Remove</button></td></tr>`))}
+<div class=f style="margin-top:12px"><label>Your business state (decides CGST + SGST or IGST)<select id=mys onchange="D.myState=this.value;save()">${SN.map(s=>`<option ${D.myState==s?'selected':''}>${s}</option>`).join('')}</select></label></div>
+${cloudUI()}<p>Your data is stored only inside this browser on this computer. Clearing browser data will delete it. <b>Download a backup every week.</b></p>
+<div class=f><button class=a onclick=exp()>Download backup</button><button class=a onclick=toXls(1)>Full report (Excel)</button><label>Restore from backup<input type=file accept=.json onchange=imp(this)></label><button class=s onclick=undoRestore()>Undo last restore</button><button class=s onclick=wipe()>Erase everything</button></div></div>`}
+function exp(){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify({...D,app:'Packaging You Need - Manager',v:6,saved:td()})],{type:'application/json'}));a.download='Packaging-You-Need-Manager-backup-'+td()+'.json';a.click()}
+const BASE=()=>({cash0:0,fixed:0,items:[],bills:[],exp:[],prods:[],cv:null,chk:{},parties:[],cap:[],myState:'Delhi'});
+function imp(el){const fl=el.files[0];if(!fl)return;const r=new FileReader();r.onload=()=>{try{const x=JSON.parse(r.result);if(!Array.isArray(x.bills)||!Array.isArray(x.items))throw 0;
+if(!confirm('Restore this backup? It replaces the data now in the app ('+D.bills.length+' bills, '+D.items.length+' stock items). You can undo once from Settings.'))return;
+try{localStorage.setItem(K+'_prev',JSON.stringify(D))}catch(e){}
+D={...BASE(),...x};mig();D.v=6;resnap();save();go('Settings');alert('Restored: '+D.bills.length+' bills, '+D.items.length+' stock items, '+D.exp.length+' expenses, '+D.prods.length+' saved products.')}catch(e){alert('This is not a valid backup file.')}};r.readAsText(fl);el.value=''}
+function undoRestore(){try{const q=localStorage.getItem(K+'_prev');if(!q)return alert('Nothing to undo.');D={...BASE(),...JSON.parse(q)};resnap();save();localStorage.removeItem(K+'_prev');go('Settings');alert('Undone. Your data from before the restore is back.')}catch(e){alert('Undo failed.')}}
+function wipe(){if(confirm('Erase ALL data? This cannot be undone.'+(cloud()?' Cloud sync is on, so this also erases your data on your other devices.':''))&&confirm('Are you sure?')){D={cash0:0,fixed:0,items:[],bills:[],exp:[],prods:[],cv:null};save();go('Dashboard')}}
+
+/* ROUTER */
+/* ACCOUNTS */
+const ST={'01':'Jammu and Kashmir','02':'Himachal Pradesh','03':'Punjab','04':'Chandigarh','05':'Uttarakhand','06':'Haryana','07':'Delhi','08':'Rajasthan','09':'Uttar Pradesh','10':'Bihar','11':'Sikkim','12':'Arunachal Pradesh','13':'Nagaland','14':'Manipur','15':'Mizoram','16':'Tripura','17':'Meghalaya','18':'Assam','19':'West Bengal','20':'Jharkhand','21':'Odisha','22':'Chhattisgarh','23':'Madhya Pradesh','24':'Gujarat','26':'Dadra and Nagar Haveli and Daman and Diu','27':'Maharashtra','29':'Karnataka','30':'Goa','31':'Lakshadweep','32':'Kerala','33':'Tamil Nadu','34':'Puducherry','35':'Andaman and Nicobar Islands','36':'Telangana','37':'Andhra Pradesh','38':'Ladakh'};
+const SN=Object.values(ST),GRX=/^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z][1-9A-Z]Z[0-9A-Z]$/,PRX=/^[A-Z]{5}[0-9]{4}[A-Z]$/;
+let ped=null,pview=null;
+const pf=id=>D.parties.find(p=>p.id==id);
+const pby=q=>D.parties.find(p=>p.name.toLowerCase()==String(q).trim().toLowerCase());
+const pbills=p=>D.bills.filter(b=>b.pid==p.id||(!b.pid&&b.party==p.name));
+function gstChg(){const x=val('p_gstin').toUpperCase();if(x.length==15&&GRX.test(x)){$('p_pan').value=x.slice(2,12);const s=ST[x.slice(0,2)];if(s)$('p_state').value=s}}
+function accounts(){const e=ped?pf(ped):{};const v=(k,d='')=>e&&e[k]!=null?e[k]:d;
+const T=(id,l,k,x='')=>inp(id,l,v(k),'text',x);
+const sel=(id,l,o,k)=>`<label>${l}<select id=${id}>${o.map(x=>`<option ${v(k)==x?'selected':''}>${x}</option>`).join('')}</select></label>`;
+return `<h2>Accounts: customers and suppliers</h2><div class=box style="margin-bottom:14px"><h3 style="margin-top:0">${ped?'Edit party':'Add a party'}</h3><div class=f>
+${sel('p_type','Party type',['Customer','Supplier','Customer and Supplier'],'type')}${T('p_name','Party name *','name')}${T('p_legal','Legal name (as on GST certificate)','legal')}
+${T('p_gstin','GSTIN (15 characters)','gstin','maxlength=15 oninput=gstChg() style="text-transform:uppercase"')}${T('p_pan','PAN','pan','maxlength=10 style="text-transform:uppercase"')}${sel('p_reg','GST registration',['Regular','Composition','Unregistered','SEZ'],'reg')}
+<label>State<select id=p_state><option value="">Select state</option>${SN.map(s=>`<option ${v('state')==s?'selected':''}>${s}</option>`).join('')}</select></label>
+${T('p_addr','Address','addr','style="width:300px"')}${T('p_city','City','city')}${T('p_pin','PIN code','pin','maxlength=6')}
+${T('p_contact','Contact person','contact')}${T('p_phone','Phone','phone')}${T('p_email','Email','email')}
+${inp('p_days','Default credit days',v('days',30))}${inp('p_limit','Credit limit (₹, 0 = none)',v('limit',0))}${T('p_udyam','Udyam (MSME) number','udyam')}
+${T('p_bank','Bank name','bank')}${T('p_acc','Account number','acc')}${T('p_ifsc','IFSC','ifsc','maxlength=11 style="text-transform:uppercase"')}${T('p_note','Notes','note','style="width:300px"')}
+<button class=a onclick=saveParty()>${ped?'Update party':'Save party'}</button>${ped?`<button class=s onclick="ped=null;go('Accounts')">Cancel</button>`:''}</div></div>
+${fbar('Accounts','')}<div id=res>${BODY.Accounts()}</div>`}
+function partyView(p){if(!p)return'';const bl=pbills(p),it=D.items.filter(i=>i.pid==p.id||(!i.pid&&i.party==p.name));
+const kv=[['Type',p.type],['Legal name',p.legal],['GSTIN',p.gstin],['PAN',p.pan],['GST registration',p.reg],['Address',[p.addr,p.city,p.state,p.pin].filter(Boolean).join(', ')],['Contact',[p.contact,p.phone,p.email].filter(Boolean).join(' | ')],['Credit',(p.days||0)+' days, limit '+(p.limit?f(p.limit):'none')],['Udyam',p.udyam],['Bank',[p.bank,p.acc,p.ifsc].filter(Boolean).join(' | ')],['Notes',p.note]].filter(x=>x[1]);
+return `<h3>${esc(p.name)} - account</h3><p><b>Owes you ${f(sum(bl.filter(b=>b.t=='S').map(b=>b.amt-b.paid)))} | You owe ${f(sum(bl.filter(b=>b.t=='P').map(b=>b.amt-b.paid)))}</b></p>${tbl(['Detail','Value'],kv.map(x=>`<tr><td>${x[0]}</td><td style="white-space:normal">${esc(x[1])}</td></tr>`))}
+<h3>Bills with ${esc(p.name)}</h3>${tbl(['Type','Date','Qty','Before GST','GST','Total','Paid','Balance'],bl.map(b=>`<tr><td>${b.t=='S'?'Sale':'Purchase'}</td><td>${b.date}</td><td>${b.qty||'-'}</td><td>${f(bs(b))}</td><td>${b.gst!=null?f(b.gst):'-'}</td><td>${f(b.amt)}</td><td>${f(b.paid)}</td><td>${f(b.amt-b.paid)}</td></tr>`))}
+<h3>Stock bought from ${esc(p.name)}</h3>${tbl(['Item','Quantity','Value'],it.map(i=>`<tr><td>${esc(i.name)}</td><td>${i.qty} ${esc(i.unit)}</td><td>${f(i.qty*i.rate)}</td></tr>`))}
+<h3>Expenses with ${esc(p.name)}</h3>${tbl(['Date','Category','Amount','Note'],D.exp.filter(e=>e.pid==p.id||(!e.pid&&e.party==p.name)).map(e=>`<tr><td>${e.date}</td><td>${esc(e.cat)}</td><td>${f(e.amt)}</td><td>${esc(e.note||'')}</td></tr>`))}
+<h3>Box prices saved for ${esc(p.name)}</h3>${tbl(['Box','Cost/box','Price/box'],D.prods.filter(x=>x.pid==p.id).map(x=>`<tr><td>${esc(x.name)}</td><td>${x.cost!=null?f(x.cost):'-'}</td><td>${f(x.sp!=null?x.sp:x.v.sp)}</td></tr>`))}
+<p><button class=s onclick="pview=null;go('Accounts')">Close</button></p>`}
+function saveParty(){const g2=k=>val('p_'+k).trim(),name=g2('name');if(!name)return alert('Enter the party name');
+let gst=g2('gstin').toUpperCase(),pan=g2('pan').toUpperCase();
+if(gst&&!GRX.test(gst))return alert('GSTIN looks wrong. It has 15 characters, for example 07ABCDE1234F1Z5. Check it, or leave it blank for an unregistered party.');
+if(!pan&&gst)pan=gst.slice(2,12);
+if(pan&&!PRX.test(pan))return alert('PAN looks wrong. It has 10 characters, for example ABCDE1234F.');
+if(gst&&pan!=gst.slice(2,12)&&!confirm('This PAN does not match the PAN inside the GSTIN. Save anyway?'))return;
+if(D.parties.find(p=>p.name.toLowerCase()==name.toLowerCase()&&p.id!=ped))return alert('A party with this name already exists.');
+const o={type:val('p_type'),name,legal:g2('legal'),gstin:gst,pan,reg:val('p_reg'),state:val('p_state'),addr:g2('addr'),city:g2('city'),pin:g2('pin'),contact:g2('contact'),phone:g2('phone'),email:g2('email'),days:n(val('p_days')),limit:n(val('p_limit')),udyam:g2('udyam'),bank:g2('bank'),acc:g2('acc'),ifsc:g2('ifsc').toUpperCase(),note:g2('note')};
+if(ped){const p=pf(ped);D.bills.forEach(b=>{if(b.pid==p.id)b.party=name});D.items.forEach(i=>{if(i.pid==p.id)i.party=name});Object.assign(p,o)}else D.parties.push({id:uid(),...o});
+ped=null;save();go('Accounts')}
+function delParty(id){if(confirm('Delete this party? Its old bills and stock keep the name.')){D.parties=D.parties.filter(p=>p.id!=id);if(pview==id)pview=null;save();go('Accounts')}}
+function addCash(){const a=n(val('ca'));if(!a)return alert('Enter the amount to add');D.cash0=r2(n(D.cash0)+a);D.cap=D.cap||[];D.cap.push({id:uid(),date:td(),amt:a,note:val('cn').trim()});save();go('Settings')}
+function delCap(id){const c=(D.cap||[]).find(x=>x.id==id);if(c&&confirm('Remove this entry? It also takes '+f(c.amt)+' off the opening balance.')){D.cash0=r2(n(D.cash0)-c.amt);D.cap=D.cap.filter(x=>x.id!=id);save();go('Settings')}}
+function pickP(){const p=pby(val('bp')),el=$('pinfo');
+if(!p){el.innerHTML=val('bp').trim()?'<span class=Y>Not saved in Accounts. Add this party in Accounts to keep GSTIN, state and credit terms.</span>':'';return bprev()}
+if(p.type=='Supplier'&&val('bt')!='P'){$('bt').value='P';$('bg').value=18}
+if(p.type=='Customer'&&val('bt')!='S'){$('bt').value='S';$('bg').value=5}
+if(p.state&&D.myState)$('bi').value=p.state==D.myState?0:1;if(p.days!=null)$('bc').value=p.days;
+el.innerHTML=`<span class=m>${esc(p.type)} | ${p.gstin?'GSTIN '+esc(p.gstin):'No GSTIN'}${p.state?' | '+esc(p.state):''}${p.limit?' | Credit limit '+f(p.limit):''}</span>`;bprev()}
+/* FILTERS AND LINKS */
+function fset(t,k,v){F[t][k]=v;$('res').innerHTML=BODY[t]()}
+const plist=()=>[...new Set([...D.parties.map(p=>p.name),...D.bills.map(b=>b.party),...D.items.map(i=>i.party),...D.exp.map(e=>e.party)].filter(Boolean))].sort();
+const pdl=id=>`<datalist id=${id}>${plist().map(x=>`<option value="${esc(x)}">`).join('')}</datalist>`;
+const fin=(t,k,l,ty='text',x='')=>`<label>${l}<input type=${ty} value="${esc(F[t][k]||'')}" oninput="fset('${t}','${k}',this.value)" ${x}></label>`;
+const fsel=(t,k,l,o)=>`<label>${l}<select onchange="fset('${t}','${k}',this.value)">${o.map(([v,x])=>`<option value="${esc(v)}" ${(F[t][k]||'')==v?'selected':''}>${esc(x)}</option>`).join('')}</select></label>`;
+const fbar=(t,x)=>`<div class=fb>${fin(t,'q','Search','search','placeholder="party, item, anything" style="width:200px"')}${fsel(t,'p','Party',[['','All parties'],...plist().map(y=>[y,y])])}${x}<button class=s onclick="F['${t}']={};go('${t}')">Clear</button></div>`;
+const fmatch=(o,t,txt)=>{const x=F[t];return(!x.p||o.party==x.p)&&(!x.q||txt.toLowerCase().includes(x.q.toLowerCase()))};
+const fsum=t=>{const x=F[t],a=[];if(x.p)a.push('Party: '+x.p);if(x.q)a.push('Search: '+x.q);if(x.from)a.push('From '+x.from);if(x.to)a.push('To '+x.to);return a.length?`<p class=m>Filter: ${esc(a.join(' | '))}</p>`:''};
+function ensureParty(nm){nm=(nm||'').trim();if(!nm)return null;let p=pby(nm);if(p)return p;
+if(!confirm('"'+nm+'" is not in Accounts. Create it now?\n(You can add GSTIN and address later in Accounts.)'))return{name:nm};
+p={id:uid(),type:'Customer and Supplier',name:nm,reg:'Regular',days:30,limit:0};D.parties.push(p);return p}
+BODY.Accounts=()=>{const x=F.Accounts;const a=D.parties.filter(p=>(!x.p||p.name==x.p)&&(!x.q||[p.name,p.legal,p.gstin,p.city,p.state,p.phone].join(' ').toLowerCase().includes(x.q.toLowerCase())));
+return fsum('Accounts')+tbl(['Party','Type','GSTIN','State','Phone','Owes you','You owe','',''],a.map(p=>{const bl=pbills(p),rc=sum(bl.filter(b=>b.t=='S').map(b=>b.amt-b.paid)),py=sum(bl.filter(b=>b.t=='P').map(b=>b.amt-b.paid));
+return `<tr><td><b>${esc(p.name)}</b></td><td>${esc(p.type)}</td><td>${esc(p.gstin||'-')}</td><td>${esc(p.state||'-')}</td><td>${esc(p.phone||'-')}</td><td>${f(rc)}</td><td>${f(py)}</td><td><button class=s onclick="pview=${p.id};go('Accounts')">View</button> <button class=s onclick="ped=${p.id};go('Accounts')">Edit</button></td><td><button class=s onclick="delParty(${p.id})">Delete</button></td></tr>`}))+(pview?partyView(pf(pview)):'')};
+BODY.Calculator=()=>{const a=D.prods.map((p,i)=>({p,i})).filter(({p})=>fmatch(p,'Calculator',p.name+' '+(p.party||'')));
+return fsum('Calculator')+tbl(['Box','Party','Cost/box','Price/box','Saved','',''],a.map(({p,i})=>`<tr><td>${esc(p.name)}</td><td>${esc(p.party||'-')}</td><td>${p.cost!=null?f(p.cost):'-'}</td><td>${f(p.sp!=null?p.sp:p.v.sp)}</td><td>${p.date||'-'}</td><td><button class=s onclick=loadP(${i})>Load</button></td><td><button class=s onclick=delP(${i})>Delete</button></td></tr>`))};
+function cpChg(){if(val('cp')=='__new'){$('cp').value='';grab();ped=null;go('Accounts');setTimeout(()=>alert('Create the new party here. Then go back to Calculator and pick it.'),50)}else stale()}
+function stock(){return `<h2>Stock in hand</h2><div class=f>${inp('sn','Item (e.g. 120 GSM kraft reel, or 12x12x5 box)','','text')}<label>Kind<select id=sk><option>Raw material</option><option>Finished boxes</option></select></label>${inp('su','Unit','kg','text','size=6')}${inp('sq','Quantity','')}${inp('sr','Cost per unit (₹)','')}${inp('sm','Reorder level','')}${inp('sv','Party name (bought from, or box kept for)','','text','list=sl')}${pdl('sl')}<button class=a onclick=addI()>Add item</button></div>
+${fbar('Stock',fsel('Stock','k','Kind',[['','All kinds'],['Raw material','Raw material'],['Finished boxes','Finished boxes']]))}<div id=res>${BODY.Stock()}</div>`}
+BODY.Stock=()=>{const x=F.Stock,a=D.items.filter(i=>fmatch(i,'Stock',i.name+' '+(i.party||''))&&(!x.k||(i.kind||'Raw material')==x.k));
+return fsum('Stock')+tbl(['Item','Kind','Party','Quantity','Rate','Value','Reorder at','Status','',''],a.map(i=>`<tr><td>${esc(i.name)}</td><td>${esc(i.kind||'Raw material')}</td><td>${esc(i.party||'-')}</td><td>${i.qty} ${esc(i.unit)}</td><td>${f(i.rate)}</td><td>${f(i.qty*i.rate)}</td><td>${i.min}</td><td>${i.min>0&&i.qty<=i.min?'<b class=R>LOW</b>':'<span class=G>OK</span>'}</td>
+<td><button class=s onclick="adj(${i.id},1)">+ In</button> <button class=s onclick="adj(${i.id},-1)">- Out</button> <button class=s onclick="rate(${i.id})">Rate</button></td><td><button class=s onclick="delI(${i.id})">Delete</button></td></tr>`))+`<p><b>Stock value shown: ${f(sum(a.map(i=>i.qty*i.rate)))}</b></p>`};
+function addI(){if(!val('sn'))return alert('Enter item name');const pp=ensureParty(val('sv'));D.items.push({id:uid(),name:val('sn'),kind:val('sk'),party:pp?pp.name:'',pid:pp&&pp.id,unit:val('su')||'pcs',qty:n(val('sq')),rate:n(val('sr')),min:n(val('sm'))});save();go('Stock')}
+function exps(){return `<h2>Expenses</h2><div class=f>${inp('ed','Date',td(),'date')}<label>Category<select id=ec>${CATS.map(c=>`<option>${c}</option>`).join('')}</select></label>${inp('ea','Amount (₹)','')}${inp('ep','Party (optional)','','text','list=sl')}${pdl('sl')}${inp('en','Note','','text')}<button class=a onclick=addE()>Add expense</button></div>
+${fbar('Expenses',fin('Expenses','from','From','date')+fin('Expenses','to','To','date')+fsel('Expenses','c','Category',[['','All'],...CATS.map(c=>[c,c])]))}<div id=res>${BODY.Expenses()}</div>`}
+BODY.Expenses=()=>{const x=F.Expenses,a=D.exp.filter(e=>fmatch(e,'Expenses',e.cat+' '+(e.party||'')+' '+(e.note||''))&&(!x.c||e.cat==x.c)&&(!x.from||e.date>=x.from)&&(!x.to||e.date<=x.to)).sort((p,q)=>q.date.localeCompare(p.date)),cat={};a.forEach(e=>cat[e.cat]=(cat[e.cat]||0)+e.amt);
+return fsum('Expenses')+'<h3>By category</h3>'+tbl(['Category','Total'],Object.entries(cat).map(([k,v])=>`<tr><td>${esc(k)}</td><td>${f(v)}</td></tr>`))+'<h3>Expenses</h3>'+tbl(['Date','Category','Party','Amount','Note',''],a.map(e=>`<tr><td>${e.date}</td><td>${esc(e.cat)}</td><td>${esc(e.party||'-')}</td><td>${f(e.amt)}</td><td>${esc(e.note||'')}</td><td><button class=s onclick="delE(${e.id})">Delete</button></td></tr>`))+`<p><b>Total shown: ${f(sum(a.map(e=>e.amt)))}</b></p>`};
+function addE(){if(!n(val('ea')))return alert('Enter amount');const pp=ensureParty(val('ep'));D.exp.push({id:uid(),date:val('ed'),cat:val('ec'),amt:n(val('ea')),party:pp?pp.name:'',pid:pp&&pp.id,note:val('en')});save();go('Expenses')}
+function saveP(){run();const nm=D.cv.nm||prompt('Name this box');if(!nm)return;D.cv.nm=nm;const pr=pf(D.cv.cp)||null,e={name:nm,party:pr?pr.name:'',pid:pr?pr.id:undefined,v:{...D.cv},cost:LAST.c,sp:LAST.sp,date:td()};
+const i=D.prods.findIndex(p=>p.name==nm&&(p.pid||0)==(e.pid||0));if(i>=0){if(!confirm('"'+nm+'" already exists'+(pr?' for '+pr.name:'')+'. Replace it?'))return;D.prods[i]=e}else D.prods.push(e);save();go('Calculator')}
+/* CLOUD SYNC (Firebase Realtime Database over its REST API; record-by-record merge, newest edit wins) */
+const COLS=['items','bills','exp','parties','cap','prods'];
+const kk=id=>String(id).replace('.','_');
+const SCJ=()=>JSON.stringify({cash0:D.cash0,fixed:D.fixed,myState:D.myState,chk:D.chk});
+function snapOf(){const S={cols:{},sc:SCJ()};COLS.forEach(c=>{S.cols[c]={};(D[c]||[]).forEach(r=>S.cols[c][kk(r.id)]=JSON.stringify({...r,u:0}))});return S}
+function resnap(){try{localStorage.setItem(K+'_snap',JSON.stringify(snapOf()))}catch(e){}}
+function stamp(){D.del=D.del||{};let S=null,ch=false;try{S=JSON.parse(localStorage.getItem(K+'_snap')||'null')}catch(e){}
+if(!S){COLS.forEach(c=>(D[c]||[]).forEach(r=>{if(!r.id)r.id=uid();r.u=r.u||Date.now()}));D.su=D.su||Date.now();S=snapOf();ch=true}
+else{COLS.forEach(c=>{const old=S.cols[c]||{},now={};(D[c]||[]).forEach(r=>{if(!r.id)r.id=uid();const k=kk(r.id),j=JSON.stringify({...r,u:0});now[k]=j;if(old[k]!==j||!r.u){r.u=Date.now();ch=true}if(D.del[k]&&r.u>D.del[k].t)delete D.del[k]});
+Object.keys(old).forEach(k=>{if(!(k in now)&&!D.del[k]){D.del[k]={t:Date.now(),c};ch=true}});S.cols[c]=now});
+if(S.sc!==SCJ()){D.su=Date.now();S.sc=SCJ();ch=true}}
+localStorage.setItem(K+'_snap',JSON.stringify(S));return ch}
+const cloud=()=>{try{return JSON.parse(localStorage.getItem(K+'_cloud')||'null')}catch(e){return null}};
+let CLMSG='Not synced yet',syncing=false,tmr=null;
+function st(m){CLMSG=m;const e=document.getElementById('cl');if(e)e.textContent=m}
+const schedSync=()=>{if(!cloud())return;clearTimeout(tmr);tmr=setTimeout(()=>sync(),3000)};
+async function tok(){const c=cloud();if(!c)throw Error('Not connected');if(c.id&&Date.now()<c.exp-60000)return c.id;
+const r=await fetch('https://securetoken.googleapis.com/v1/token?key='+c.key,{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'grant_type=refresh_token&refresh_token='+encodeURIComponent(c.rt)});
+const j=await r.json();if(!r.ok)throw Error('Login expired. Disconnect and connect again.');
+c.id=j.id_token;c.rt=j.refresh_token;c.exp=Date.now()+j.expires_in*1000;localStorage.setItem(K+'_cloud',JSON.stringify(c));return c.id}
+async function connect(){const url=val('cu').trim().replace(/\/+$/,''),key=val('ck').trim(),em=val('ce').trim(),pw=val('cw');
+if(!/^https:\/\//.test(url)||!key||!em||!pw)return alert('Fill the database URL, web API key, email and password.');
+try{const r=await fetch('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key='+key,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:em,password:pw,returnSecureToken:true})});
+const j=await r.json();if(!r.ok)throw Error((j.error&&j.error.message)||'Login failed');
+localStorage.setItem(K+'_cloud',JSON.stringify({url,key,em,id:j.idToken,rt:j.refreshToken,exp:Date.now()+j.expiresIn*1000,first:1}));stamp();go('Settings');await sync(1)}catch(e){alert('Could not connect: '+e.message)}}
+function disconnect(){if(confirm('Disconnect cloud sync on this device? Your data stays here and in the cloud.')){localStorage.removeItem(K+'_cloud');st('Not connected');go('Settings')}}
+function setupCode(){const c=cloud();prompt('Copy this code. On your phone, paste it in Settings under Cloud sync:',btoa(JSON.stringify({u:c.url,k:c.key,e:c.em})))}
+function useCode(){try{const j=JSON.parse(atob(val('cs').trim()));$('cu').value=j.u;$('ck').value=j.k;$('ce').value=j.e}catch(e){}}
+function cloudUI(){const c=cloud();return `<hr style="border:0;border-top:1px solid var(--b);margin:14px 0"><h3 style="margin-top:0">Cloud sync (phone and desktop)</h3>`+(c?`<p>Connected as <b>${esc(c.em)}</b>. <span class=m>${esc(CLMSG)}</span></p><div class=f><button class=a onclick="sync(1)">Sync now</button><button class=s onclick=setupCode()>Copy setup code for my phone</button><button class=s onclick=disconnect()>Disconnect</button></div>`:`<p class=m>Download a backup first. Connect your main device (the desktop with your real data) first, then the phone.</p><div class=f>${inp('cs','Setup code (optional, from your other device)','','text','oninput=useCode()')}${inp('cu','Database URL','','text','style="width:320px"')}${inp('ck','Web API key','','text')}${inp('ce','Login email','','text')}${inp('cw','Login password','','password')}<button class=a onclick=connect()>Connect</button></div>`)+`<hr style="border:0;border-top:1px solid var(--b);margin:14px 0">`}
+function merge(R){stamp();D.del=D.del||{};const rr=R.rec||{},rd=R.del||{},c0=cloud(),before=JSON.stringify([COLS.map(c=>D[c]),SCJ(),D.del]);
+Object.entries(rd).forEach(([k,v])=>{if(!D.del[k]||D.del[k].t<v.t)D.del[k]=v});
+COLS.forEach(c=>{const m={};(D[c]||[]).forEach(r=>m[kk(r.id)]=r);
+Object.entries(rr[c]||{}).forEach(([k,r])=>{const l=m[k];if(!l||(r.u||0)>(l.u||0))m[k]=r});
+D[c]=Object.entries(m).filter(([k,r])=>{const d=D.del[k];return!(d&&d.t>(r.u||0))}).map(e=>e[1])});
+const live={};COLS.forEach(c=>D[c].forEach(r=>live[kk(r.id)]=r.u||0));Object.keys(D.del).forEach(k=>{if(live[k]!=null&&live[k]>D.del[k].t)delete D.del[k]});
+const rs=R.sc;if(rs&&((rs.su||0)>(D.su||0)||(c0&&c0.first))){D.cash0=rs.cash0||0;D.fixed=rs.fixed||0;D.myState=rs.myState||D.myState;D.chk=rs.chk||{};D.su=rs.su||0}
+return before!==JSON.stringify([COLS.map(c=>D[c]),SCJ(),D.del])}
+function pushSet(R){const up={},rr=R.rec||{},rd=R.del||{};
+COLS.forEach(c=>(D[c]||[]).forEach(r=>{const k=kk(r.id),x=(rr[c]||{})[k];if(!x||(r.u||0)>(x.u||0))up[`rec/${c}/${k}`]=r}));
+Object.entries(D.del).forEach(([k,d])=>{if(!rd[k]||rd[k].t<d.t)up['del/'+k]=d;COLS.forEach(c=>{const x=(rr[c]||{})[k];if(x&&(x.u||0)<d.t)up[`rec/${c}/${k}`]=null})});
+if(!R.sc||(D.su||0)>(R.sc.su||0))up.sc={cash0:D.cash0,fixed:D.fixed,myState:D.myState,chk:D.chk||{},su:D.su||0};return up}
+async function sync(manual){const c=cloud();if(!c||syncing)return;syncing=true;st('Syncing...');
+try{const t=await tok(),u=c.url+'/pyn.json?auth='+t,r=await fetch(u);if(!r.ok)throw Error('Cloud read failed ('+r.status+'). Check the database rules and your login.');
+const R=(await r.json())||{},ch=merge(R);localStorage.setItem(K,JSON.stringify(D));resync0();
+const up=pushSet(R);if(Object.keys(up).length){const w=await fetch(u,{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify(up)});if(!w.ok)throw Error('Cloud write failed ('+w.status+')')}
+const cc=cloud();if(cc&&cc.first){delete cc.first;localStorage.setItem(K+'_cloud',JSON.stringify(cc))}
+st('Synced at '+new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}));
+if(ch){const a=document.activeElement;if(a&&/INPUT|SELECT|TEXTAREA/.test(a.tagName)){const e=$('cl');if(e)e.innerHTML='<button class=s onclick="go(cur)">New data from your other device: refresh</button>'}else go(cur)}
+}catch(e){st(navigator.onLine===false||/fetch/i.test(e.message)?'Offline. Will sync when connected.':'Sync problem: '+e.message)}
+syncing=false}
+function resync0(){resnap()}
+setInterval(()=>{if(cloud()&&!document.hidden)sync()},60000);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)sync()});
+window.addEventListener('online',()=>sync());
+/* GUIDE */
+function tick(k){D.chk=D.chk||{};D.chk[k]=!D.chk[k];save()}
+const ck=(k,t)=>`<li style="list-style:none;margin-left:-18px"><label style="flex-direction:row;align-items:center;gap:8px;color:var(--t);font-size:14px"><input type=checkbox ${D.chk&&D.chk[k]?'checked':''} onchange="tick('${k}')"> ${t}</label></li>`;
+const ul=a=>'<ul>'+a.map(x=>`<li>${x}</li>`).join('')+'</ul>';
+const bx=(t,b,c='')=>`<div class=box style="${c}"><h3 style="margin-top:0">${t}</h3>${b}</div>`;
+function guide(){return `<h2>Guide: what to do and what not to do</h2><div class=two>
+${bx('DO',ul(['Know the cost of every box before you quote. Use the Calculator.','Add a price-revision clause to quotes, because paper rates change.','Take an advance on new and small clients.','Keep any one client under 25% of your sales.','Keep 2-3 job-work units, not one.','Record every bill and payment the same day.','Keep business and personal money separate. Pay yourself a fixed salary.','Keep a cash buffer of 1-2 months of fixed costs.','File GST and ITR on time and keep clean books.','Download a backup every week.']),'border-left:4px solid var(--g)')}
+${bx('DO NOT',ul(['Do not buy machines before you have orders. A machine must be about 60% used from day one.','Do not give long credit to win an order.','Do not quote below your cost per box.','Do not depend on one client or one supplier.','Do not borrow for hope. Borrow only for confirmed orders.','Do not take informal high-interest loans.','Do not grow faster than your cash allows.','Do not ignore quality or late delivery. You lose clients for good.','Do not hire for relationship instead of ability.','Do not trust profit on paper. Watch cash.']),'border-left:4px solid var(--r)')}</div>
+<h3>Every month (30 minutes)</h3>${bx('Monthly routine',ul(['Record all sales, purchases, payments and expenses.','Check Dashboard: overdue money, days clients take to pay, cash buffer.','Check cash in bank against payments due in the next 30 days.','Compare actual margin on orders with the Calculator margin.','Update paper and duplex rates in the Calculator.','Write down the 3 biggest problems and the fix for each.']))}
+<div class=two>${bx('Your 90-day plan',`<ul>${[['a','Month 1: costing done for every box you sell'],['b','Month 1: separate business current account'],['c','Month 1: clear the side-business arrangement with your uncle'],['d','Month 2: credit limit set for every client'],['e','Month 2: meet 3 new clients and send quotes'],['f','Month 2: visit 2 other box factories'],['g','Month 3: margin review of all orders'],['h','Month 3: break-even checked'],['i','Month 3: meet a CA about GST and tax']].map(x=>ck(x[0],x[1])).join('')}</ul>`)}
+${bx('Business setup checklist',`<ul>${[['j','Udyam (MSME) registration done'],['k','GST registered and filed on time'],['l','ITR filed every year'],['m','Books updated every month'],['n','A CA appointed'],['o','Written terms with job-work units'],['p','8-10 clients, none above 25%']].map(x=>ck(x[0],x[1])).join('')}</ul>`)}</div>
+<h3>Key terms in simple words</h3>${tbl(['Term','Meaning'],[['GSM','Paper weight in grams per square metre. Higher is stronger and costlier.'],['BF','Bursting factor. Strength of the paper.'],['Flute / Ply','The wavy paper layer / number of paper layers in the board.'],['Blank','The flat cut piece before it is folded into a box.'],['Wastage %','Part of the sheet that is cut away. You still pay for it.'],['Working capital','Money you need to run daily work until clients pay.'],['Cash cycle','Days between paying for paper and getting paid.'],['Break-even','Boxes you must sell each month to cover fixed costs.'],['Receivable days','How many days clients take to pay you.'],['Capacity use','How much of a machine you actually use. Below 60% usually loses money.']].map(r=>`<tr><td><b>${r[0]}</b></td><td style="white-space:normal">${r[1]}</td></tr>`))}
+<div class=two>${bx('Growth path',ul(['Learn: costing, paper market, all departments.','Build 8-10 clients and a clean record.','Add one small machine only when orders fill about 60% of it.','Scale to your own unit later. Check Delhi and NCR industrial rules first.']))}
+${bx('Funding (for later)',ul(['Own savings and profit kept in the business are safest.','Working capital loans need clean stock and receivable records.','Check Mudra, CGTMSE and PMEGP with a bank MSME desk.','Banks want 3 years of clean ITR, GST and bank statements.']))}</div>
+${bx('Books to read',ul(['The Goal (Goldratt)','Profit First (Michalowicz)','The Hard Thing About Hard Things (Horowitz)','Poor Charlies Almanack (Munger)']))}
+<p class=m>Rules, tax limits and schemes change. Check with your CA before acting.</p>`}
+const T={Dashboard:dash,Calculator:calc,Stock:stock,Bills:bills,Accounts:accounts,Expenses:exps,Guide:guide,Settings:back};
+/* EXPORT: Excel (.xls opens in Excel) and PDF (print dialog > Save as PDF) */
+let cur='Dashboard';
+const lt=l=>[...l.childNodes].filter(x=>x.nodeType==3).map(x=>x.textContent).join('').trim();
+function clean(t,d){
+d.querySelectorAll('button,datalist,input[type=file],.bar,.fb,#ph').forEach(e=>e.remove());
+d.querySelectorAll('.g').forEach(x=>{const r=[...x.querySelectorAll('.k')].map(k=>`<tr><td>${k.querySelector('span').textContent}</td><td><b>${k.querySelector('b').textContent}</b></td></tr>`).join('');x.outerHTML=`<table>${r}</table>`});
+d.querySelectorAll('.f').forEach(x=>{if(t!='Calculator'){x.remove();return}
+const r=[...x.querySelectorAll('label')].map(l=>{const i=l.querySelector('input,select');const v=!i?'':i.type=='checkbox'?(i.checked?'Yes':'No'):i.tagName=='SELECT'?i.options[i.selectedIndex].text:i.value;return `<tr><td>${esc(lt(l))}</td><td>${esc(v)}</td></tr>`}).join('');x.outerHTML=`<table>${r}</table>`});
+return `<h2>${t}</h2>${d.innerHTML}`}
+function toXls(all){if(cur=='Settings')all=1;
+const tabs=all?['Dashboard','Stock','Bills','Expenses']:[cur];
+const body=tabs.map(t=>clean(t,t=='Calculator'?$('v').cloneNode(true):Object.assign(document.createElement('div'),{innerHTML:T[t]()}))).join('<br>');
+const h=`\ufeff<html xmlns:x="urn:schemas-microsoft-com:office:excel"><head><meta charset="utf-8"><style>td,th{border:1px solid #999;padding:4px}th{background:#eee}</style></head><body><h1>Packaging You Need - Manager</h1><p>Report date: ${td()}</p>${body}</body></html>`;
+const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([h],{type:'application/vnd.ms-excel'}));a.download='Packaging-You-Need-Manager-'+(all?'Full-Report':cur)+'-'+td()+'.xls';a.click()}
+const BAR='<div class=bar><button class=s onclick="toXls()">Download Excel</button><button class=s onclick="window.print()">Save as PDF / Print</button></div>';
+function go(t){cur=t;$('nav').innerHTML='<img src="'+LOGO+'" alt="" style="height:30px;width:30px;border-radius:5px;margin-right:8px;align-self:center"><b>Packaging You Need - Manager</b>'+Object.keys(T).map(k=>`<button class="${k==t?'on':''}" onclick="go('${k}')">${k}</button>`).join('')+'<span id=cl class=m style="margin-left:auto;align-self:center;font-size:13px"></span>';st(CLMSG);$('v').dataset.t=t;$('v').innerHTML=BAR+'<div id=ph>Packaging You Need - Manager - '+t+' - '+td()+'</div>'+T[t]();if(t=='Calculator')run();if(t=='Bills')bprev()}
+go('Dashboard');sync();
+</script></body></html>
